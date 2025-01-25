@@ -1,0 +1,659 @@
+{
+	"info": {
+		"_postman_id": "6e3f55a5-1b48-48e0-9e4e-09ca5811cf09",
+		"name": "Blogs API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "40283823"
+	},
+	"item": [
+		{
+			"name": "Auth Service",
+			"item": [
+				{
+					"name": "Register User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Youssef Adel",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "jo12@mail.com",
+									"type": "text"
+								},
+								{
+									"key": "username",
+									"value": "jo12",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BLOGS_HOST}}:{{BLOGS_PORT}}/{{AUTH_PATH}}/register",
+							"host": [
+								"{{BLOGS_HOST}}"
+							],
+							"port": "{{BLOGS_PORT}}",
+							"path": [
+								"{{AUTH_PATH}}",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "ah12",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BLOGS_HOST}}:{{BLOGS_PORT}}/{{AUTH_PATH}}/login",
+							"host": [
+								"{{BLOGS_HOST}}"
+							],
+							"port": "{{BLOGS_PORT}}",
+							"path": [
+								"{{AUTH_PATH}}",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Refresh Access Token",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{BLOGS_HOST}}:{{BLOGS_PORT}}/{{AUTH_PATH}}/refresh",
+							"host": [
+								"{{BLOGS_HOST}}"
+							],
+							"port": "{{BLOGS_PORT}}",
+							"path": [
+								"{{AUTH_PATH}}",
+								"refresh"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjExMTQzZTNmLWZkNzItNDdiMS1hYTVjLTQwMzdlNGE2YTYwMiIsImVtYWlsIjoiam8xMkBtYWlsLmNvbSIsInN1YiI6InVzZXIgYXV0aCIsImlzcyI6IkJsb2dzQXBwQXBpIiwiYXVkIjoiQmxvZ3NBcHBBcGlVc2VycyIsImlhdCI6MTczNzMyNTE5MywiZXhwIjoxNzM3MzI1NDkzfQ.KJqg_XUtTVviBLGVCrzg3Bs--z0gfitNJgy6TcxE3h8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{BLOGS_HOST}}:{{BLOGS_PORT}}/{{AUTH_PATH}}/logout",
+							"host": [
+								"{{BLOGS_HOST}}"
+							],
+							"port": "{{BLOGS_PORT}}",
+							"path": [
+								"{{AUTH_PATH}}",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users Service",
+			"item": [
+				{
+					"name": "User Profile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjUzNjllNDNhLTE2NmYtNGE5Ny1iZjFjLTY4NDZiNGM2ZmM0MSIsImVtYWlsIjoic2ExMkBtYWlsLmNvbSIsInN1YiI6InVzZXIgYXV0aCIsImlzcyI6IkJsb2dzQXBwQXBpIiwiYXVkIjoiQmxvZ3NBcHBBcGlVc2VycyIsImlhdCI6MTczNzQ5NzQ2NSwiZXhwIjoxNzM3NDk3NzY1fQ.5hnyRP6MmzDG-FDK4qelSg5AJAxKKmNxSkQXbUMWtKU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BLOGS_HOST}}:{{BLOGS_PORT}}/{{USERS_PATH}}/profile",
+							"host": [
+								"{{BLOGS_HOST}}"
+							],
+							"port": "{{BLOGS_PORT}}",
+							"path": [
+								"{{USERS_PATH}}",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjExMTQzZTNmLWZkNzItNDdiMS1hYTVjLTQwMzdlNGE2YTYwMiIsImVtYWlsIjoiam8xMkBtYWlsLmNvbSIsInN1YiI6InVzZXIgYXV0aCIsImlzcyI6IkJsb2dzQXBwQXBpIiwiYXVkIjoiQmxvZ3NBcHBBcGlVc2VycyIsImlhdCI6MTczNzMyNzc1MywiZXhwIjoxNzM3MzI4MDUzfQ.KYipSsERpwjqN05NfZjoWsz6WqtEO7N-qKte15doUuM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Youssef Adel Mahmoud",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "username",
+									"value": "jojo1234",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "email",
+									"value": "jojo1234@mail.com",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BLOGS_HOST}}:{{BLOGS_PORT}}/{{USERS_PATH}}/profile",
+							"host": [
+								"{{BLOGS_HOST}}"
+							],
+							"port": "{{BLOGS_PORT}}",
+							"path": [
+								"{{USERS_PATH}}",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User Account",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjUzNjllNDNhLTE2NmYtNGE5Ny1iZjFjLTY4NDZiNGM2ZmM0MSIsImVtYWlsIjoic2ExMkBtYWlsLmNvbSIsInN1YiI6InVzZXIgYXV0aCIsImlzcyI6IkJsb2dzQXBwQXBpIiwiYXVkIjoiQmxvZ3NBcHBBcGlVc2VycyIsImlhdCI6MTczNzQ5NzQ2NSwiZXhwIjoxNzM3NDk3NzY1fQ.5hnyRP6MmzDG-FDK4qelSg5AJAxKKmNxSkQXbUMWtKU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BLOGS_HOST}}:{{BLOGS_PORT}}/{{USERS_PATH}}/profile/delete",
+							"host": [
+								"{{BLOGS_HOST}}"
+							],
+							"port": "{{BLOGS_PORT}}",
+							"path": [
+								"{{USERS_PATH}}",
+								"profile",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deactivate User Account",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjExMTQzZTNmLWZkNzItNDdiMS1hYTVjLTQwMzdlNGE2YTYwMiIsImVtYWlsIjoiam9qbzEyMzRAbWFpbC5jb20iLCJzdWIiOiJ1c2VyIGF1dGgiLCJpc3MiOiJCbG9nc0FwcEFwaSIsImF1ZCI6IkJsb2dzQXBwQXBpVXNlcnMiLCJpYXQiOjE3Mzc0OTgwMTAsImV4cCI6MTczNzQ5ODMxMH0.t5omwzUka6laasTWbK_jilvXlrWKSccIeS6JlKDNsKk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{BLOGS_HOST}}:{{BLOGS_PORT}}/{{USERS_PATH}}/profile/deactivate",
+							"host": [
+								"{{BLOGS_HOST}}"
+							],
+							"port": "{{BLOGS_PORT}}",
+							"path": [
+								"{{USERS_PATH}}",
+								"profile",
+								"deactivate"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Blogs Service",
+			"item": [
+				{
+					"name": "Create Blog",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjlhN2JmOWZkLWM0ZGMtNDc5NS1hZGNiLTkxNzAyZDU5ZDgzMSIsImVtYWlsIjoiYWgxMkBtYWlsLmNvbSIsInN1YiI6InVzZXIgYXV0aCIsImlzcyI6IkJsb2dzQXBwQXBpIiwiYXVkIjoiQmxvZ3NBcHBBcGlVc2VycyIsImlhdCI6MTczNzU5MTE1MiwiZXhwIjoxNzM3NTkxNDUyfQ.BtjLGnZ2UONRxuxuRHTqazGdJNVL2RBsI31vmj4-iGM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "title",
+									"value": "ah blog 9",
+									"type": "text"
+								},
+								{
+									"key": "body",
+									"value": "ahmed blog body text",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BLOGS_HOST}}:{{BLOGS_PORT}}/{{BLOGS_PATH}}/new",
+							"host": [
+								"{{BLOGS_HOST}}"
+							],
+							"port": "{{BLOGS_PORT}}",
+							"path": [
+								"{{BLOGS_PATH}}",
+								"new"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List All Blogs",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BLOGS_HOST}}:{{BLOGS_PORT}}/{{BLOGS_PATH}}/all?page=1",
+							"host": [
+								"{{BLOGS_HOST}}"
+							],
+							"port": "{{BLOGS_PORT}}",
+							"path": [
+								"{{BLOGS_PATH}}",
+								"all"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User Blogs",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjlhN2JmOWZkLWM0ZGMtNDc5NS1hZGNiLTkxNzAyZDU5ZDgzMSIsImVtYWlsIjoiYWgxMkBtYWlsLmNvbSIsInN1YiI6InVzZXIgYXV0aCIsImlzcyI6IkJsb2dzQXBwQXBpIiwiYXVkIjoiQmxvZ3NBcHBBcGlVc2VycyIsImlhdCI6MTczNzY3Njg4NCwiZXhwIjoxNzM3Njc3MTg0fQ.e48YUui2Fv4L6CPPb4FcfGNnBg_oAFPl3sA5M2g8Yiw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BLOGS_HOST}}:{{BLOGS_PORT}}/{{BLOGS_PATH}}/my-blogs?page=1",
+							"host": [
+								"{{BLOGS_HOST}}"
+							],
+							"port": "{{BLOGS_PORT}}",
+							"path": [
+								"{{BLOGS_PATH}}",
+								"my-blogs"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Blog By ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjlhN2JmOWZkLWM0ZGMtNDc5NS1hZGNiLTkxNzAyZDU5ZDgzMSIsImVtYWlsIjoiYWgxMkBtYWlsLmNvbSIsInN1YiI6InVzZXIgYXV0aCIsImlzcyI6IkJsb2dzQXBwQXBpIiwiYXVkIjoiQmxvZ3NBcHBBcGlVc2VycyIsImlhdCI6MTczNzU5MTQwMCwiZXhwIjoxNzM3NTkxNzAwfQ.woW3sLwLlmowcFoT2o7KlwZbUdalyqWZwPzdb0CmKIU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BLOGS_HOST}}:{{BLOGS_PORT}}/{{BLOGS_PATH}}/my-blogs/dc30d31e-b9c2-4c01-9771-4ded7571763b",
+							"host": [
+								"{{BLOGS_HOST}}"
+							],
+							"port": "{{BLOGS_PORT}}",
+							"path": [
+								"{{BLOGS_PATH}}",
+								"my-blogs",
+								"dc30d31e-b9c2-4c01-9771-4ded7571763b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Blog By ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjlhN2JmOWZkLWM0ZGMtNDc5NS1hZGNiLTkxNzAyZDU5ZDgzMSIsImVtYWlsIjoiYWgxMkBtYWlsLmNvbSIsInN1YiI6InVzZXIgYXV0aCIsImlzcyI6IkJsb2dzQXBwQXBpIiwiYXVkIjoiQmxvZ3NBcHBBcGlVc2VycyIsImlhdCI6MTczNzY3NjE2OSwiZXhwIjoxNzM3Njc2NDY5fQ.q8o5TIorEVLRo49XAPBgqJmuv3q1ghSgE3IHaEZdXbQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "newTitle",
+									"value": "AHMED BLOG 9 NEW TITLE",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "newBody",
+									"value": "AHMED BLOG 9 NEW BODY BODY ?????????????????????????",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BLOGS_HOST}}:{{BLOGS_PORT}}/{{BLOGS_PATH}}/my-blogs/852e9b44-0e4b-4ba1-bac3-bceb21f9686b",
+							"host": [
+								"{{BLOGS_HOST}}"
+							],
+							"port": "{{BLOGS_PORT}}",
+							"path": [
+								"{{BLOGS_PATH}}",
+								"my-blogs",
+								"852e9b44-0e4b-4ba1-bac3-bceb21f9686b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Blog By ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjlhN2JmOWZkLWM0ZGMtNDc5NS1hZGNiLTkxNzAyZDU5ZDgzMSIsImVtYWlsIjoiYWgxMkBtYWlsLmNvbSIsInN1YiI6InVzZXIgYXV0aCIsImlzcyI6IkJsb2dzQXBwQXBpIiwiYXVkIjoiQmxvZ3NBcHBBcGlVc2VycyIsImlhdCI6MTczNzY3Njg4NCwiZXhwIjoxNzM3Njc3MTg0fQ.e48YUui2Fv4L6CPPb4FcfGNnBg_oAFPl3sA5M2g8Yiw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BLOGS_HOST}}:{{BLOGS_PORT}}/{{BLOGS_PATH}}/my-blogs/852e9b44-0e4b-4ba1-bac3-bceb21f9686b",
+							"host": [
+								"{{BLOGS_HOST}}"
+							],
+							"port": "{{BLOGS_PORT}}",
+							"path": [
+								"{{BLOGS_PATH}}",
+								"my-blogs",
+								"852e9b44-0e4b-4ba1-bac3-bceb21f9686b"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Comments Service",
+			"item": [
+				{
+					"name": "Add Comment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjlhN2JmOWZkLWM0ZGMtNDc5NS1hZGNiLTkxNzAyZDU5ZDgzMSIsImVtYWlsIjoiYWgxMkBtYWlsLmNvbSIsInN1YiI6InVzZXIgYXV0aCIsImlzcyI6IkJsb2dzQXBwQXBpIiwiYXVkIjoiQmxvZ3NBcHBBcGlVc2VycyIsImlhdCI6MTczNzgyNzUzMiwiZXhwIjoxNzM3ODI3ODMyfQ.nFKPoQlBuPV-7PVRCKV8qlYTeKk38hP4nRXX-vtWlkA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "body",
+									"value": "ahmed blog 3 1 comment",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BLOGS_HOST}}:{{BLOGS_PORT}}/{{COMMENTS_PATH}}/0e301ae7-5347-4793-b72f-6e4bc945fec9",
+							"host": [
+								"{{BLOGS_HOST}}"
+							],
+							"port": "{{BLOGS_PORT}}",
+							"path": [
+								"{{COMMENTS_PATH}}",
+								"0e301ae7-5347-4793-b72f-6e4bc945fec9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "A Blog Comments",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BLOGS_HOST}}:{{BLOGS_PORT}}/{{COMMENTS_PATH}}/0e301ae7-5347-4793-b72f-6e4bc945fec9",
+							"host": [
+								"{{BLOGS_HOST}}"
+							],
+							"port": "{{BLOGS_PORT}}",
+							"path": [
+								"{{COMMENTS_PATH}}",
+								"0e301ae7-5347-4793-b72f-6e4bc945fec9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Comment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjlhN2JmOWZkLWM0ZGMtNDc5NS1hZGNiLTkxNzAyZDU5ZDgzMSIsImVtYWlsIjoiYWgxMkBtYWlsLmNvbSIsInN1YiI6InVzZXIgYXV0aCIsImlzcyI6IkJsb2dzQXBwQXBpIiwiYXVkIjoiQmxvZ3NBcHBBcGlVc2VycyIsImlhdCI6MTczNzgyNjcxOCwiZXhwIjoxNzM3ODI3MDE4fQ.YroFFnCxQrVkrRsWtQZVAFSG93UE5cnqe5eLTkwFaVI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "newBody",
+									"value": "salma blog 8 111111 comment ???????????????",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BLOGS_HOST}}:{{BLOGS_PORT}}/{{COMMENTS_PATH}}/c5fbb05f-04bf-47b1-b18a-19e03a602f6b",
+							"host": [
+								"{{BLOGS_HOST}}"
+							],
+							"port": "{{BLOGS_PORT}}",
+							"path": [
+								"{{COMMENTS_PATH}}",
+								"c5fbb05f-04bf-47b1-b18a-19e03a602f6b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Comment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjlhN2JmOWZkLWM0ZGMtNDc5NS1hZGNiLTkxNzAyZDU5ZDgzMSIsImVtYWlsIjoiYWgxMkBtYWlsLmNvbSIsInN1YiI6InVzZXIgYXV0aCIsImlzcyI6IkJsb2dzQXBwQXBpIiwiYXVkIjoiQmxvZ3NBcHBBcGlVc2VycyIsImlhdCI6MTczNzgyNzY0NywiZXhwIjoxNzM3ODI3OTQ3fQ.bG6ch6zcf3HrR3nVGC52YGBv9waEZM87UIKtDrZd7xI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BLOGS_HOST}}:{{BLOGS_PORT}}/{{COMMENTS_PATH}}/1b6b27b6-5cf3-4b1f-b200-24e65fc53570",
+							"host": [
+								"{{BLOGS_HOST}}"
+							],
+							"port": "{{BLOGS_PORT}}",
+							"path": [
+								"{{COMMENTS_PATH}}",
+								"1b6b27b6-5cf3-4b1f-b200-24e65fc53570"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "BLOGS_HOST",
+			"value": "http://localhost"
+		},
+		{
+			"key": "BLOGS_PORT",
+			"value": "8000"
+		},
+		{
+			"key": "AUTH_PATH",
+			"value": "api/v1/auth"
+		},
+		{
+			"key": "USERS_PATH",
+			"value": "api/v1/users"
+		},
+		{
+			"key": "BLOGS_PATH",
+			"value": "api/v1/blogs"
+		},
+		{
+			"key": "COMMENTS_PATH",
+			"value": "api/v1/comments"
+		}
+	]
+}

@@ -1,0 +1,83 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  USER
+  ADMIN
+}
+
+model User {
+  user_id      String        @id @default(uuid()) @db.Uuid
+  name         String        @db.VarChar(100)
+  email        String        @unique @db.VarChar(50)
+  username     String        @unique @db.VarChar(50)
+  password     String
+  role         Role          @default(USER)
+  is_active    Boolean       @default(true)
+  refreshToken RefreshToken?
+  blogs        Blog[]
+  comments     Comment[]
+  created_at   DateTime      @default(now())
+  updated_at   DateTime      @updatedAt
+
+  @@map("users") // name the table users
+}
+
+model RefreshToken {
+  token_id   String   @id @default(uuid()) @db.Uuid
+  token      String   @unique
+  user_id    String   @unique @db.Uuid
+  user       User     @relation(fields: [user_id], references: [user_id])
+  revoked    Boolean  @default(false)
+  expires_in DateTime
+  created_at DateTime @default(now())
+
+  @@map("refresh_tokens") // name the table refresh_tokens
+}
+
+model LogoutToken {
+  token_id   String   @id @default(uuid()) @db.Uuid
+  token      String
+  created_at DateTime @default(now())
+
+  @@map("logout_tokens") // name the table logout_tokens
+}
+
+model Blog {
+  blog_id    String    @id @default(uuid()) @db.Uuid
+  title      String    @db.VarChar(50)
+  body       String
+  user_id    String    @db.Uuid
+  user       User      @relation(fields: [user_id], references: [user_id])
+  comments   Comment[]
+  created_at DateTime  @default(now())
+  updated_at DateTime  @updatedAt
+
+  @@map("blogs") // name the table blogs
+}
+
+model Comment {
+  comment_id String   @id @default(uuid()) @db.Uuid
+  body       String
+  blog_id    String   @db.Uuid
+  author_id  String   @db.Uuid
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  blog       Blog     @relation(fields: [blog_id], references: [blog_id], onDelete: Cascade)
+  user       User     @relation(fields: [author_id], references: [user_id], onDelete: Cascade)
+
+  @@map("comments") // name the table comments
+}
